@@ -1,0 +1,7 @@
+<div class="input-group mb-3 mt-4 mx-2">
+  <span class="input-group-text" id="basic-addon1">@</span>
+  <input type="text" [value]="loadedName" #nombre class="form-control" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+</div>
+
+<kip-custom-avatar class="my-3" id="customAvatar" (avatarSaved)="onAvatarSaved($event, nombre)" [avatarSelection]="avatarSelection">
+</kip-custom-avatar>
