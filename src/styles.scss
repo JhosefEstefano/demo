@@ -1,1 +1,37 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'themes';
+
+@import '~@nebular/theme/styles/globals';
+
+@include nb-install() {
+  @include nb-theme-global();
+};
+@import 'https://fonts.googleapis.com/css?family=Suez+One&subset=latin-ext';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Slab&display=swap');
+@import '~animate.css/animate.min';
+
+body {
+    background-color: #f7f7ff;
+    background-image: radial-gradient(#000dff 1.1500000000000001px, transparent 1.1500000000000001px), radial-gradient(#000dff 1.1500000000000001px, #f7f7ff 1.1500000000000001px);
+    background-size: 46px 46px;
+    background-position: 0 0, 23px 23px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+.router-wrapper  {
+	position:  relative;
+	overflow:  hidden;
+	width:  100vw;
+	height:  calc(100%  -  47px);
+	perspective:  1200px;
+	transform-style:  preserve-3d;
+}
+
+:host  {
+	display: block;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: #60d7a9;
+}
