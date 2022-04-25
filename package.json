@@ -26,6 +26,7 @@
     "dom-to-image": "^2.6.0",
     "eva-icons": "^1.1.2",
     "ng-avataaars-library": "^1.0.8",
+    "ngx-masonry": "^13.0.0",
     "ngx-router-animations": "^13.0.0",
     "ngx-spinner": "^13.1.1",
     "rxjs": "~6.6.0",
