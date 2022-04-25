@@ -30,6 +30,7 @@ export class TilesComponent implements OnInit {
     this.productos = this.service.getProductos();
 
     this.img = this.service.getImg();
+
     for (let prod = 0; prod < this.productos.length; prod++) {
       this.productos[prod].IMG = this.img[prod].IMG;
 
