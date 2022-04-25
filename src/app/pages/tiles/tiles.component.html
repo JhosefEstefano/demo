@@ -46,17 +46,16 @@
         </div>
       </div>
     </div>
-    <div
-      class="col-xs-12 col-sm-6 col-md-3 cards-pickup-area text-center my-3 py-4"
-      id="diamonds"
-    >
+
+    <div id="container" class="cols">
       <div
-        class="card m-3"
-        [id]="prod.Codigo"
+        class="box"
+        [style]="prod.Pos"
         (click)="alert(prod)"
         *ngFor="let prod of productos"
-        [style]="prod.Pos"
-      ></div>
+      >
+        <img src="assets/IMG/shopping-cart.png" width="78px" />
+      </div>
     </div>
   </div>
 </div>

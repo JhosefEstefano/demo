@@ -1,0 +1,30 @@
+#container {
+  width: 100%;
+  display: flex;
+  margin: 2em auto;
+}
+.cols {
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 3%;
+  flex-shrink: 3;
+}
+.box {
+  margin-bottom: 20px;
+  height: 100px;
+  width: 240px;
+  background: #bfbfbf;
+}
+
+.box:hover {
+  animation: rotateX 4s linear infinite;
+}
+
+@keyframes rotateX {
+  0% {
+    transform: rotateX(0deg);
+  }
+  35% {
+    transform: rotateX(360deg);
+  }
+}
