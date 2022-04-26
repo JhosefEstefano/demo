@@ -18,6 +18,7 @@ import { MediaLunaModule } from './pages/media-luna/media-luna.module';
 import { EditorModule } from './pages/editor/editor.module';
 import { ViewModule } from './pages/view/view.module';
 import { CarritoJh2Module } from './pages/carrito-jh2/carrito-jh2.module';
+import { TilesModule } from './pages/tiles/tiles.module';
 
 
 
@@ -37,6 +38,7 @@ import { CarritoJh2Module } from './pages/carrito-jh2/carrito-jh2.module';
     MediaLunaModule,
     EditorModule,
     ViewModule,
+    TilesModule,
     CarritoJh2Module,
     SweetAlert2Module.forRoot(),
 
