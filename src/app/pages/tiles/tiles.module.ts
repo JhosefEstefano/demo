@@ -8,5 +8,6 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 @NgModule({
   declarations: [TilesComponent],
   imports: [CommonModule, TilesRoutingModule, NgxSpinnerModule],
+  exports: [TilesComponent],
 })
 export class TilesModule {}
