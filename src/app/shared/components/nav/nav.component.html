@@ -25,9 +25,22 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" [routerLink]="['/mediaLuna']">Carrito de compras</a>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdownMenuLink" role="button"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            Carrito de compras
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li class="nav-item">
+              <a class="nav-link active"  style="color: black;" aria-current="page" [routerLink]="['/mediaLuna']">Carrito de compras</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active"  style="color: black;" aria-current="page" [routerLink]="['/carrito-segundo']">Carrito de compras v2</a>
+            </li>
+          </ul>
         </li>
+       
       </ul>
     </div>
   </div>

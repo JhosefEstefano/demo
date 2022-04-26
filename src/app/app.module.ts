@@ -17,6 +17,7 @@ import { HomeModule } from './pages/home/home.module';
 import { MediaLunaModule } from './pages/media-luna/media-luna.module';
 import { EditorModule } from './pages/editor/editor.module';
 import { ViewModule } from './pages/view/view.module';
+import { CarritoJh2Module } from './pages/carrito-jh2/carrito-jh2.module';
 
 
 
@@ -36,6 +37,7 @@ import { ViewModule } from './pages/view/view.module';
     MediaLunaModule,
     EditorModule,
     ViewModule,
+    CarritoJh2Module,
     SweetAlert2Module.forRoot(),
 
   ],
