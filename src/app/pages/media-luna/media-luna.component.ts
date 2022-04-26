@@ -164,12 +164,8 @@ export class MediaLunaComponent implements OnInit {
   public saveFile(event: any): void {
     // ... save file
     console.log(event);
-  }
-
-  public handleDenial(): void {
     // ... don't save file and quit
   }
-
   public handleDismiss(event: any): void {
     console.log(event);
   }

@@ -39,16 +39,15 @@ const routes: Routes = [
       ),
   },
   {
-    path: '',
-    loadChildren: () =>
-      import('./pages/home/home.module').then((m) => m.HomeModule),
-  },
-  {
     path: 'tiles',
     loadChildren: () =>
       import('./pages/tiles/tiles.module').then((m) => m.TilesModule),
   },
-
+  {
+    path: '',
+    loadChildren: () =>
+      import('./pages/home/home.module').then((m) => m.HomeModule),
+  },
   {
     path: '**',
     loadChildren: () =>
