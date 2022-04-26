@@ -1,31 +1,24 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 import Swal from 'sweetalert2/dist/sweetalert2.js';
-import 'sweetalert2/src/sweetalert2.scss';
 import { ImageI } from '../Interfaces/ImageI';
 import { Producto } from '../Interfaces/IProducto';
 import { PageService } from '../Services/page.service';
 
-declare const $: any;
-
-import { NgxSpinnerService } from 'ngx-spinner';
-import { Router } from '@angular/router';
-
 @Component({
-  selector: 'app-media-luna',
-  templateUrl: './media-luna.component.html',
-  styleUrls: ['./media-luna.component.scss'],
+  selector: 'app-tiles',
+  templateUrl: './tiles.component.html',
+  styleUrls: ['./tiles.component.scss'],
 })
-export class MediaLunaComponent implements OnInit {
+export class TilesComponent implements OnInit {
   @ViewChild('camion') camion!: ElementRef<HTMLObjectElement>;
   @ViewChild('progress') progress!: ElementRef<HTMLObjectElement>;
 
   productos: Producto[] = [];
-  img: ImageI[] = [];
-  i: number = 0;
-
   llemo: number = 0;
-
   maximo: number = 50;
+  img: ImageI[] = [];
 
   constructor(
     private service: PageService,
@@ -35,7 +28,9 @@ export class MediaLunaComponent implements OnInit {
 
   ngOnInit(): void {
     this.productos = this.service.getProductos();
+
     this.img = this.service.getImg();
+
     for (let prod = 0; prod < this.productos.length; prod++) {
       this.productos[prod].IMG = this.img[prod].IMG;
 
@@ -55,25 +50,22 @@ export class MediaLunaComponent implements OnInit {
         this.productos[prod].Pos = position;
       }
     }
-
-    console.log(this.productos);
   }
 
   entrada() {
-    console.log('Entrada!!!', this.camion.nativeElement.className);
     this.camion.nativeElement.className = '';
     this.camion.nativeElement.className =
       'animate__animated animate__bounceInLeft';
   }
 
   ingreso() {
-    console.log('Entrada!!!', this.camion.nativeElement.className);
+    // console.log('Entrada!!!', this.camion.nativeElement.className);
     this.camion.nativeElement.className = '';
     this.camion.nativeElement.className = 'animate__animated animate__bounce';
   }
 
   salida() {
-    console.log('Salida!!!', this.camion.nativeElement.className);
+    // console.log('Salida!!!', this.camion.nativeElement.className);
     this.camion.nativeElement.className = '';
     this.camion.nativeElement.className =
       'animate__animated animate__bounceOutRight';
@@ -119,19 +111,13 @@ export class MediaLunaComponent implements OnInit {
           let res = op1 / this.maximo;
           this.llemo = res;
 
-          console.log(res);
-
-          // const card = document.getElementById(`${prod.Codigo}`)! as HTMLDivElement;
+          // console.log(res);
 
           this.camion.nativeElement.setAttribute('text', this.llemo.toString());
 
           this.progress.nativeElement.style.height = `${this.llemo}%`;
 
-          console.log(this.progress.nativeElement);
-
-          // console.log(card);
-
-          // card.hidden = true;
+          // console.log(this.progress.nativeElement);
 
           this.spinner.show();
 
@@ -150,23 +136,5 @@ export class MediaLunaComponent implements OnInit {
         }
       }
     });
-  }
-
-  Cargar() {
-    Swal.fire({
-      title: 'Error!',
-      text: 'Do you want to continue',
-      icon: 'error',
-      confirmButtonText: 'Cool',
-    });
-  }
-
-  public saveFile(event: any): void {
-    // ... save file
-    console.log(event);
-    // ... don't save file and quit
-  }
-  public handleDismiss(event: any): void {
-    console.log(event);
   }
 }

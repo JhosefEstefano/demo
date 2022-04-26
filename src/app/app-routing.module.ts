@@ -11,10 +11,15 @@ const routes: Routes = [
   { path: 'user-chat', loadChildren: () => import('./pages/user-chat/user-chat.module').then((m) => m.UserChatModule), },
   { path: '', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeModule) },
   { path: '**', loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule) },
+  {
+    path: 'tiles',
+    loadChildren: () =>
+      import('./pages/tiles/tiles.module').then((m) => m.TilesModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
