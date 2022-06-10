@@ -19,6 +19,9 @@ import { EditorModule } from './pages/editor/editor.module';
 import { ViewModule } from './pages/view/view.module';
 import { CarritoJh2Module } from './pages/carrito-jh2/carrito-jh2.module';
 import { TilesModule } from './pages/tiles/tiles.module';
+import { LoginModule } from './pages/login/login.module';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -40,6 +43,8 @@ import { TilesModule } from './pages/tiles/tiles.module';
     ViewModule,
     TilesModule,
     CarritoJh2Module,
+    LoginModule,
+    FormsModule,
     SweetAlert2Module.forRoot(),
 
   ],

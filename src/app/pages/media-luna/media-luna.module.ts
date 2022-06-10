@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MediaLunaRoutingModule } from './media-luna-routing.module';
 import { MediaLunaComponent } from './media-luna.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { ViewModule } from '../view/view.module';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
   imports: [
     CommonModule,
     MediaLunaRoutingModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    ViewModule
   ],
   exports: [MediaLunaComponent]
 })

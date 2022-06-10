@@ -1,4 +1,6 @@
-<div class="container">
-    <img [src]="src" alt="" style="object-fit: cover;" class="img-fluid">
-    <h2 class="text-center">{{nombre}}</h2>
-</div>
+<center>
+    <div class="container" *ngIf="isLoggedIn$ | async">
+        <img [src]="src" alt="" style="object-fit: cover;" class="img-fluid">
+        <span class="text-center nombre" style="word-wrap:break-word ;">{{nombre}}</span>
+    </div>
+</center>

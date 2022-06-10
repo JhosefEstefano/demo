@@ -1,100 +1,175 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/home']">Demo</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNav"
-      aria-controls="navbarNav"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a
-            class="nav-link active"
-            aria-current="page"
-            [routerLink]="['/home']"
-            >Inicio</a
-          >
+<!-- <section class="menu menu--circle"  >
+  <input type="checkbox" id="menu__active"/>
+  <label for="menu__active" class="menu__active">
+    <div class="menu__toggle">
+      <div class="icon">
+        <div class="hamburger"></div>
+      </div>
+    </div>
+    <input type="radio" name="arrow--up" id="degree--up-0"/>
+    <input type="radio" name="arrow--up" id="degree--up-1" />
+    <input type="radio" name="arrow--up" id="degree--up-2" />
+    <div class="menu__listings">
+      <ul class="circle">
+        <li>
+          <div class="placeholder">
+             <div class="upside">
+                
+              <a    [routerLink]="['/home']" class="button" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                <i class="material-symbols-outlined">home</i>
+            </a>
+            <br>
+                Inicio
+            </div>
+          </div>
         </li>
-
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle active"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Avatar
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li>
-              <a
-                class="nav-link"
-                style="color: black"
-                aria-current="page"
-                [routerLink]="['/editor']"
-                >Editor</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" style="color: black" [routerLink]="['/view']"
-                >Ver</a
-              >
-            </li>
-          </ul>
+        <li>
+          <div class="placeholder">
+            <div class="upside">
+              <a (click)="onLogout()" class="button" >
+                <i class="material-symbols-outlined">cancel</i>
+            </a>
+            <br>
+                Salir
+            </div>
+          </div>
         </li>
+        <li>
+           <div class="placeholder">
+            <div class="upside">
+              <a href="#" class="button">
+                <i class="material-symbols-outlined">list_alt</i>
+            </a>
+            <br>
+                Lista
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="placeholder">
+          <div class="upside">
+            &nbsp; 
+          </div>
+        </div>
 
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle active"
-            href="#"
-            id="navbarDropdownMenuLink"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Carritos de compra
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li class="nav-item">
-              <a
-                style="color: black"
-                class="nav-link active"
-                aria-current="page"
-                [routerLink]="['/mediaLuna']"
-                >Carrito de compras</a
-              >
-            </li>
-            <li class="nav-item">
-              <a
-                style="color: black"
-                class="nav-link active"
-                aria-current="page"
-                [routerLink]="['/tiles']"
-                >Carrito de compras v2</a
-              >
-            </li>
+      </li>
+        <li>
+          <div class="placeholder">
+            <div class="upside">
+              <a [routerLink]="['/view']" class="button">
+                <span class="material-symbols-outlined">
+                  preview
+                  </span>
+            </a>
+            <br>
+                Ver Avatar
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="placeholder">
+           <div class="upside">
+             <a [routerLink]="['/editor']" class="button">
+               <i class="material-symbols-outlined">man</i>
+           </a>
+           <br>
+               Avatar
+           </div>
+         </div>
+       </li>
 
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                style="color: black"
-                aria-current="page"
-                [routerLink]="['/carrito-segundo']"
-                >Carrito de compras v3</a
-              >
-            </li>
-          </ul>
+        <li>
+          <div class="placeholder">
+            <div class="upside">
+              <a  [routerLink]="['/carrito-segundo']" class="button">
+                <span class="material-symbols-outlined">
+                  shopping_cart
+                  </span>
+            </a>
+            <br>
+                Carrito 3
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="placeholder">
+            <div class="upside">
+              <a  [routerLink]="['/tiles']" class="button">
+                <span class="material-symbols-outlined">
+                  local_shipping
+                  </span>
+            </a>
+            <br>
+                Carrito 2
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="placeholder">
+            <div class="upside">
+              <a   [routerLink]="['/mediaLuna']"class="button">
+                <span class="material-symbols-outlined">
+                  add_shopping_cart
+                  </span>
+            </a>
+            <br>
+                Carrito 1
+            </div>
+          </div>
         </li>
       </ul>
     </div>
-  </div>
-</nav>
+    <div class="menu__arrow menu__arrow--top">
+      <ul>
+        <li>
+          <label for="degree--up-0"><div class="arrow"></div></label>
+          <label for="degree--up-1"><div class="arrow"></div></label>
+          <label for="degree--up-2"><div class="arrow"></div></label>
+        </li>
+      </ul>
+    </div>
+  </label>
+</section> -->
+
+
+<div class="button_container" id="toggle" #toggle (click)="openMenu()" *ngIf="isLoggedIn$ | async">
+  <span class="top"></span>
+  <span class="middle"></span>
+  <span class="bottom"></span>
+</div>
+
+<div class="overlay" id="overlay" #overlay>
+  <nav class="overlay-menu">
+    <ul>
+      <li>
+        <a [routerLink]="['/home']" class="button" (click)="openMenu()" data-toggle="tooltip" data-placement="right"
+          title="Tooltip on right">
+          Inicio
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/view']" (click)="openMenu()" class="button">
+          Ver Avatar
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/editor']" (click)="openMenu()" class="button">
+          Editar Avatar
+        </a>
+      </li>
+
+      <li> <a [routerLink]="['/mediaLuna']" (click)="openMenu()" class="button">
+      Carrito 1
+      </a></li>
+      <li> <a [routerLink]="['/tiles']" (click)="openMenu()" class="button">
+          Carrito 2
+        </a></li>
+      <li><a [routerLink]="['/carrito-segundo']" (click)="openMenu()" class="button">
+          Carrito 3
+        </a></li>
+        <li><a [routerLink]="['/carrito-segundo']" (click)="onLogout(); openMenu()" class="button">
+          Cerrar Sesi&oacute;n.
+        </a></li>
+    </ul>
+  </nav>
+</div>

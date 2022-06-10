@@ -3,13 +3,17 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChatService } from '../Services/chat.service';
 import { IMessageSchema } from '../Interfaces/i-message-schema';
 import { take } from 'rxjs/operators';
+import { ConstantPool } from '@angular/compiler';
+import { Observable } from 'rxjs';
+import { SharedService } from 'src/app/shared/shared.service';
 
 @Component({
   selector: 'app-user-chat',
   templateUrl: './user-chat.component.html',
-  styleUrls: ['./user-chat.component.css'],
+  styleUrls: ['./user-chat.component.scss'],
 })
 export class UserChatComponent implements OnInit {
+
 
   @ViewChild('contenedorDeChat') contenedorDeChat!: ElementRef<HTMLElement>
 
@@ -17,16 +21,19 @@ export class UserChatComponent implements OnInit {
   formChat!: FormGroup;
 
   username!: string;
-  userID!: string;
-  centralID!: string;
-
-  // connectedUsers: IUserSchema[] = [];
+  userID!: string | null;
+  centralID!: string | null;
 
   chats: IMessageSchema[] = [];
 
-  constructor(private fb: FormBuilder, private chat: ChatService) { }
+  isLoggedIn$!: Observable<boolean>;
+  constructor(private fb: FormBuilder, private chat: ChatService, private authService: SharedService) { }
+
 
   ngOnInit(): void {
+
+    this.isLoggedIn$ = this.authService.isLoggedIn; // {2}
+
     this.formUser = this.fb.group({
       username: [],
     });
@@ -38,27 +45,44 @@ export class UserChatComponent implements OnInit {
     this.chat.onReceive().subscribe({
       next: (e) => {
         this.chats.push(e);
-        // console.log(e);
+      },
+    });
+
+    this.chat.onReCatchTerminate().subscribe({
+      next: () => {
+        this.disconnect();
+
+        this.chats.push({
+          userID: '',
+          message: 'conexion finalizada',
+          username: 'Sistema',
+        });
       },
     });
   }
 
+  private disconnect() {
+    this.formUser.get('username')?.enable();
+    this.formUser.get('username')?.reset();
+    this.userID = null;
+    this.centralID = null;
+  }
+
   connect() {
+    this.chats.splice(0, this.chats.length);
+
     this.username = this.formUser.get('username')?.value;
     this.chat
       .connect(this.username)
       .pipe(take(1))
       .subscribe({
         next: (e) => {
-          // console.log(e);
-
           this.formUser.get('username')?.disable();
 
           this.userID = e.find((f) => f.username !== 'central')?.userID!;
           this.centralID = e.find((f) => f.username === 'central')?.userID!;
 
-          console.log(this.userID);
-          // console.log(this.centralID);
+          // console.log(this.userID);
         },
       });
   }
@@ -68,32 +92,34 @@ export class UserChatComponent implements OnInit {
 
     this.chats.push({
       message,
-      userID: this.userID,
+      userID: this.userID!,
       username: this.username,
     });
 
     this.chat.send(
       {
         message,
-        userID: this.userID,
+        userID: this.userID!,
         username: this.username,
       },
-      this.centralID
+      this.centralID!
     );
 
     this.formChat.reset();
   }
 
 
-
   mostrarChat() {
     this.contenedorDeChat.nativeElement.style.display = "block"
     this.contenedorDeChat.nativeElement.className = ' chat animate__animated animate__pulse'
   }
-  
+
 
   ocultarChat() {
     this.contenedorDeChat.nativeElement.style.display = "none";
     this.contenedorDeChat.nativeElement.className = 'chat'
+
+
+
   }
 }
