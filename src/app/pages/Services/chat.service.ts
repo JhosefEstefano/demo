@@ -9,7 +9,7 @@ import { IMessageSchema } from '../Interfaces/i-message-schema';
 })
 //
 export class ChatService {
-  io = io('https://calm-inlet-24431.herokuapp.com/', {
+  io = io('https://fce1-2803-d100-eb60-af5-9458-b795-b0fa-bb06.ngrok-free.app/', {
     autoConnect: false,
   });
 
